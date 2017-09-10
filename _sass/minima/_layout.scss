@@ -2,7 +2,6 @@
  * Site header
  */
 .site-header {
-  border-top: 5px solid $grey-color-dark;
   border-bottom: 1px solid $grey-color-light;
   min-height: $spacing-unit * 1.865;
 
@@ -252,8 +251,12 @@
 
 
 /**
- * Posts
+ * Publications
  */
+
+h1.post-title {
+  text-align: center;
+}
 
 img.pubcover {
   max-width: 250px;
@@ -269,4 +272,31 @@ ul.post-list img.pubcover:hover {
 header.post-header img.pubcover {
   max-width: 100%;
   margin-bottom: 2rem;
+}
+
+ul.publicationoptions {
+  padding-left: 0;
+  margin-left: 0;
+  list-style: none;
+}
+
+.post-publication {
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* Publication listing */
+
+ul.post-list > li {
+  max-width: 250px;
+  margin: 20px 50px 20px 50px;
+  float: left;
+}
+
+@include media-query($on-palm) {
+  ul.post-list > li {
+    margin: 20px 0px 20px 0px;
+  }
 }

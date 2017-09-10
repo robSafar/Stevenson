@@ -4,17 +4,31 @@ layout: default
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    {% if page.cover %}
-      <img class="pubcover" src="{{ page.cover }}">
+    {% if page.image %}
+      <img src="{{ page.image }}">
+    {% else %}
+      {% if page.cover %}
+        <img class="pubcover" src="{{ page.cover }}">
+      {% endif %}
     {% endif %}
     <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+    <div class="post-publication">
+        {% if page.image %}
+          {% if page.cover %}
+            <img class="pubcover" src="{{ page.cover }}">
+          {% endif %}
+        {% endif %}
+        <ul class="publicationoptions">
+          {% if page.download %}
+            <li><a href="{{ page.download }}"><strong>Download</strong></a></li>
+          {% endif %}
+          <li><a href="http://twitter.com/share?text={{ page.title }}&url={{ page.url }}&via=robSafar">Tweet</a></li>
+        </ul>
+      </div>
   </header>
 
   <div class="post-content" itemprop="articleBody">
     {{ content }}
-    {% if page.download %}
-      <a href="{{ page.download }}">Download</a>
-    {% endif %}
   </div>
 
   <p class="post-meta">
